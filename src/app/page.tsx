@@ -1,4 +1,7 @@
 import Header from "@/components/header.component";
+import Forms from "./forms/page";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   return (
@@ -16,6 +19,11 @@ export default async function Home() {
           <div className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
             Simple form builder and form analytics
           </div>
+        </div>
+        <div className="flex w-full items-center space-x-4 pb-8 pt-4 md:pb-10">
+          <Link href='/forms'>
+            <Button variant='default'>Create Form</Button>
+          </Link>
         </div>
       </section>
     </>

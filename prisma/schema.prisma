@@ -21,6 +21,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
+  forms         Form[]
 
   @@map("users")
 }
@@ -67,4 +68,18 @@ model VerificationRequest {
   updatedAt  DateTime @updatedAt
 
   @@unique([identifier, token])
+}
+
+model Form {
+ id         String   @id @default(uuid())
+ userId     String
+ title      String
+ user User @relation(fields: [ userId], references: [id])
+}
+
+
+model Question {
+  id String @id @default(uuid())
+  text String 
+  placeholder String
 }
